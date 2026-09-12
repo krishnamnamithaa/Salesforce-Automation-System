@@ -1,0 +1,37 @@
+{
+  "operation": "Submit Approval Request",
+  "method": "POST",
+  "path": "/services/data/v59.0/process/approvals",
+  "description": "Submit a contract record for approval.",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer <access_token>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "requests": [
+        {
+          "actionType": "Submit",
+          "contextActorId": "005xx000001SvRNAA0",
+          "contextId": "800xx000000001RAAQ",
+          "comments": "Contract ready for legal and finance review. Approved by sales manager.",
+          "processDefinitionNameOrId": "Contract_Approval_Process"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "actorIds": ["005xx000001LegalAAA"],
+        "entityId": "800xx000000001RAAQ",
+        "errors": null,
+        "instanceId": "04gxx000000001ZAAQ",
+        "instanceStatus": "Pending",
+        "newWorkitemIds": ["04ixx000000001ZAAQ"],
+        "success": true
+      }
+    ]
+  }
+}

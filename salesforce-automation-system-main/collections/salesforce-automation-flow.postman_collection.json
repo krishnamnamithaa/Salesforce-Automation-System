@@ -1,0 +1,1688 @@
+{
+  "item": [
+    {
+      "id": "91788609-70aa-4a30-a5bd-cb15b68390f1",
+      "name": "Flows",
+      "description": {
+        "content": "Manage Salesforce Flow definitions and metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80ee2643-cfac-46f2-8391-0f3d1b89888f",
+          "name": "Query Flow Definitions",
+          "request": {
+            "name": "Query Flow Definitions",
+            "description": {
+              "content": "Query Salesforce Flow definitions using SOQL via the Tooling API. Returns flow metadata including API name, label, version, and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tooling",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f05589b0-a621-41cd-aa26-ba3b7b65f777",
+              "name": "SOQL query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 24,\n  \"done\": false,\n  \"nextRecordsUrl\": \"string\",\n  \"records\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": 7729,\n      \"key_1\": 7446.108611445342\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8eca61d6-7fd7-4de6-a824-3917d7867fa3",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcaebaa3-3d1c-4313-947b-295bc150b39a",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7a58306-84b1-4497-aefc-cc69f2abc3b2",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "368003b7-b3c6-421e-b170-40e56d8861ec",
+          "name": "Get Flow Version",
+          "request": {
+            "name": "Get Flow Version",
+            "description": {
+              "content": "Retrieve a specific Flow version record from the Tooling API including full metadata for a flow definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tooling",
+                "sobjects",
+                "Flow",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The Salesforce Flow record ID."
+                },
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c35ff90-e9ac-48aa-9958-85ac555182a8",
+              "name": "Flow version record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "sobjects",
+                    "Flow",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Salesforce Flow record ID."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"string\",\n  \"ApiName\": \"string\",\n  \"Label\": \"string\",\n  \"Status\": \"Obsolete\",\n  \"ProcessType\": \"string\",\n  \"TriggerType\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cecc39fe-d10c-4088-af50-0c58a9f0c7f5",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "sobjects",
+                    "Flow",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Salesforce Flow record ID."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9896ffa8-cf63-4355-9be1-760478ec21cf",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "sobjects",
+                    "Flow",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Salesforce Flow record ID."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e528b86-558e-46b9-a7b7-cbf46f5b692c",
+              "name": "Record not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tooling",
+                    "sobjects",
+                    "Flow",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The Salesforce Flow record ID."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56eb6270-0eda-4820-a9d7-f356de6b2c36",
+          "name": "Invoke Flow via REST Action",
+          "request": {
+            "name": "Invoke Flow via REST Action",
+            "description": {
+              "content": "Invoke an autolaunched Salesforce Flow as a REST action. Passes input variables to the flow and returns output variables.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actions",
+                "custom",
+                "flow",
+                ":flowApiName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "flowApiName",
+                  "description": "(Required) The API name of the flow to invoke."
+                },
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"key_0\": 5211,\n      \"key_1\": false,\n      \"key_2\": 2216\n    },\n    {\n      \"key_0\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "676330a1-d02d-4204-97f6-438fd32fbe3a",
+              "name": "Flow invocation result with output variables.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    "custom",
+                    "flow",
+                    ":flowApiName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flowApiName",
+                      "description": "(Required) The API name of the flow to invoke."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputs\": [\n    {\n      \"recordId\": \"001xx000003GYn1AAG\",\n      \"action\": \"Approve\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actionName\": \"string\",\n  \"isSuccess\": true,\n  \"outputValues\": {\n    \"key_0\": 2410,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca5afd91-9bcc-41fc-87ba-7b4969f26cca",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    "custom",
+                    "flow",
+                    ":flowApiName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flowApiName",
+                      "description": "(Required) The API name of the flow to invoke."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputs\": [\n    {\n      \"recordId\": \"001xx000003GYn1AAG\",\n      \"action\": \"Approve\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93dbfcc0-3bc9-4cc9-9ff1-85dcc160acef",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    "custom",
+                    "flow",
+                    ":flowApiName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flowApiName",
+                      "description": "(Required) The API name of the flow to invoke."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputs\": [\n    {\n      \"recordId\": \"001xx000003GYn1AAG\",\n      \"action\": \"Approve\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "871083a2-8751-44c0-9c8f-348c5683e259",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actions",
+                    "custom",
+                    "flow",
+                    ":flowApiName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flowApiName",
+                      "description": "(Required) The API name of the flow to invoke."
+                    },
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputs\": [\n    {\n      \"recordId\": \"001xx000003GYn1AAG\",\n      \"action\": \"Approve\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3aecb991-3938-4e30-85d7-1bfa75f42d69",
+      "name": "Flow Interviews",
+      "description": {
+        "content": "Manage running flow interview instances.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "08c78a26-42e9-46a8-aea1-464de0d04645",
+      "name": "Process Automation",
+      "description": {
+        "content": "Query and invoke automation processes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b813b6e2-c3e6-44bf-90f0-48abb641979e",
+          "name": "List Approval Processes",
+          "request": {
+            "name": "List Approval Processes",
+            "description": {
+              "content": "Retrieve a list of all approval processes and their configuration in the org. Returns approval process names, object types, and steps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "process",
+                "approvals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2c95bd4-bb19-4e45-a64d-2035715763d3",
+              "name": "List of approval processes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"approvals\": {\n    \"key_0\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 5729,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 9691,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      }\n    ],\n    \"key_1\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 8236,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 5286,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      }\n    ],\n    \"key_2\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 5506,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 4451,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41788f16-4df5-4b54-80c1-3d871c0ae05a",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e79bd12-184d-49f9-8b1a-4ab3efe8139b",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbd21045-1132-4be3-8f92-e41b299e63ad",
+          "name": "Submit Approval Request",
+          "request": {
+            "name": "Submit Approval Request",
+            "description": {
+              "content": "Submit a record for approval, approve or reject an approval request, or bulk process multiple approval actions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "process",
+                "approvals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f885b2e6-b07f-4827-8641-62bf72437fb1",
+              "name": "Approval request result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actorIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"entityId\": \"string\",\n  \"instanceId\": \"string\",\n  \"instanceStatus\": \"string\",\n  \"newWorkitemIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "815641bf-3487-4503-a2d5-e198439ea682",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8286a255-0f38-44ec-864f-5633e3fd4cd4",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed30cc37-081d-41ac-be9f-a24ec7085279",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1da767db-780d-4c1a-9606-dac9f9624cce",
+          "name": "Execute SOQL Query",
+          "request": {
+            "name": "Execute SOQL Query",
+            "description": {
+              "content": "Execute a SOQL query against Salesforce objects. Used to query ProcessInstance (approval records), FlowInterview, and WorkflowRule objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) SOQL query string."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db067ec7-c943-41ec-99ea-eb6669a8a991",
+              "name": "Query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 5371,\n  \"done\": true,\n  \"nextRecordsUrl\": \"string\",\n  \"records\": [\n    {\n      \"key_0\": true,\n      \"key_1\": 1755.409800854264,\n      \"key_2\": 4310.313620805017,\n      \"key_3\": 1441,\n      \"key_4\": 8277\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "265e040c-edef-4215-b73a-99131d25c573",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4be324b-8fa2-44ad-9c43-126a4e2f8e16",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api refresh_token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cc51b1b7-7873-4c74-a516-5f9038deee5f",
+    "name": "Salesforce Flow Automation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Salesforce Flow Automation API provides programmatic access to Salesforce Flow definitions, interviews (running flow instances), and flow runtime execution. Flows are the primary automation tool in Salesforce, replacing Workflow Rules and Process Builder for automating business processes.\n\nContact Support:\n Name: Salesforce Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

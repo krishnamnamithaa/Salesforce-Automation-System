@@ -1,0 +1,923 @@
+{
+  "info": {
+    "_postman_id": "64681c8f-fe34-4991-9d69-2b5055edaca7",
+    "name": "Salesforce Flow Automation Flows API",
+    "description": "The Salesforce Flow Automation API provides programmatic access to Salesforce Flow definitions, interviews (running flow instances), and flow runtime execution. Flows are the primary automation tool in Salesforce, replacing Workflow Rules and Process Builder for automating business processes.\n\nContact Support:\n Name: Salesforce Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:49:46.000Z",
+    "updatedAt": "2026-07-28T02:49:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-64681c8f-fe34-4991-9d69-2b5055edaca7"
+  },
+  "item": [
+    {
+      "name": "tooling",
+      "item": [
+        {
+          "name": "query",
+          "item": [
+            {
+              "name": "Query Flow Definitions",
+              "id": "98fd1a95-4837-48c8-96d6-d3af2a91fbf7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tooling/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tooling",
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Query Salesforce Flow definitions using SOQL via the Tooling API. Returns flow metadata including API name, label, version, and status."
+              },
+              "response": [
+                {
+                  "id": "d31ea971-7ef4-48c0-b380-0101b5cb5a14",
+                  "name": "SOQL query results.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tooling/query?q=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tooling",
+                        "query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)",
+                          "key": "q",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"nextRecordsUrl\": \"<string>\",\n  \"records\": [\n    {\n      \"elit_a9f\": \"tempor pariatur dolore dolor\",\n      \"reprehenderit_44c\": \"officia cupidatat laboris sunt adipisicing\"\n    },\n    {\n      \"labore59\": \"dolor aute id\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:49:47.000Z",
+                  "updatedAt": "2026-07-28T02:49:47.000Z",
+                  "uid": "35240-d31ea971-7ef4-48c0-b380-0101b5cb5a14"
+                },
+                {
+                  "id": "088da8c2-298f-4f8e-b8ea-4914424cbacd",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tooling/query?q=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tooling",
+                        "query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)",
+                          "key": "q",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:47.000Z",
+                  "updatedAt": "2026-07-28T02:49:47.000Z",
+                  "uid": "35240-088da8c2-298f-4f8e-b8ea-4914424cbacd"
+                },
+                {
+                  "id": "2772a3aa-015f-4305-9306-a8db1543dbfb",
+                  "name": "Unauthorized - invalid or expired credentials.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tooling/query?q=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tooling",
+                        "query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)",
+                          "key": "q",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:47.000Z",
+                  "updatedAt": "2026-07-28T02:49:47.000Z",
+                  "uid": "35240-2772a3aa-015f-4305-9306-a8db1543dbfb"
+                },
+                {
+                  "id": "93d09574-43e3-426c-b6b4-3f3981013bd9",
+                  "name": "Forbidden - insufficient permissions.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tooling/query?q=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tooling",
+                        "query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)",
+                          "key": "q",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:47.000Z",
+                  "updatedAt": "2026-07-28T02:49:47.000Z",
+                  "uid": "35240-93d09574-43e3-426c-b6b4-3f3981013bd9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:49:47.000Z",
+              "updatedAt": "2026-07-28T02:49:47.000Z",
+              "uid": "35240-98fd1a95-4837-48c8-96d6-d3af2a91fbf7"
+            }
+          ],
+          "id": "193477c3-aa2f-45d0-9134-02b566c0ee9d",
+          "createdAt": "2026-07-28T02:49:46.000Z",
+          "updatedAt": "2026-07-28T02:49:46.000Z",
+          "uid": "35240-193477c3-aa2f-45d0-9134-02b566c0ee9d"
+        },
+        {
+          "name": "sobjects",
+          "item": [
+            {
+              "name": "Flow",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Get Flow Version",
+                      "id": "148d3347-aa4b-4bff-9f9f-babef122c549",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/tooling/sobjects/Flow/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tooling",
+                            "sobjects",
+                            "Flow",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9362e55c-c77a-4271-b3bc-51a67fdc7530",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) The Salesforce Flow record ID."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a specific Flow version record from the Tooling API including full metadata for a flow definition."
+                      },
+                      "response": [
+                        {
+                          "id": "639bc2d9-cea3-422c-80dc-6f81c8ec2fc1",
+                          "name": "Flow version record.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tooling/sobjects/Flow/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tooling",
+                                "sobjects",
+                                "Flow",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Id\": \"<string>\",\n  \"ApiName\": \"<string>\",\n  \"Label\": \"<string>\",\n  \"Status\": \"InvalidDraft\",\n  \"ProcessType\": \"<string>\",\n  \"TriggerType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-639bc2d9-cea3-422c-80dc-6f81c8ec2fc1"
+                        },
+                        {
+                          "id": "ddf793a3-8666-49ac-9a6d-c5f447ccc9c1",
+                          "name": "Unauthorized - invalid or expired credentials.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tooling/sobjects/Flow/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tooling",
+                                "sobjects",
+                                "Flow",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-ddf793a3-8666-49ac-9a6d-c5f447ccc9c1"
+                        },
+                        {
+                          "id": "a340c4d2-a168-4822-bde4-f7cf9cfc07b5",
+                          "name": "Forbidden - insufficient permissions.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tooling/sobjects/Flow/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tooling",
+                                "sobjects",
+                                "Flow",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-a340c4d2-a168-4822-bde4-f7cf9cfc07b5"
+                        },
+                        {
+                          "id": "2ffeaf16-65d2-4c78-9c15-a2f74ebe9579",
+                          "name": "Record not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tooling/sobjects/Flow/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tooling",
+                                "sobjects",
+                                "Flow",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-2ffeaf16-65d2-4c78-9c15-a2f74ebe9579"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:49:47.000Z",
+                      "updatedAt": "2026-07-28T02:49:47.000Z",
+                      "uid": "35240-148d3347-aa4b-4bff-9f9f-babef122c549"
+                    }
+                  ],
+                  "id": "1f43b5dd-84bf-4e49-8ffc-155a33c1a186",
+                  "createdAt": "2026-07-28T02:49:46.000Z",
+                  "updatedAt": "2026-07-28T02:49:46.000Z",
+                  "uid": "35240-1f43b5dd-84bf-4e49-8ffc-155a33c1a186"
+                }
+              ],
+              "id": "a6e12c12-fe55-418b-8fb3-4d03cbe6879d",
+              "createdAt": "2026-07-28T02:49:46.000Z",
+              "updatedAt": "2026-07-28T02:49:46.000Z",
+              "uid": "35240-a6e12c12-fe55-418b-8fb3-4d03cbe6879d"
+            }
+          ],
+          "id": "05c18dc8-bf81-4362-8474-3855d97ace4e",
+          "createdAt": "2026-07-28T02:49:46.000Z",
+          "updatedAt": "2026-07-28T02:49:46.000Z",
+          "uid": "35240-05c18dc8-bf81-4362-8474-3855d97ace4e"
+        }
+      ],
+      "id": "2c24c815-fa4a-4f0a-bc57-2bddee5f14a0",
+      "createdAt": "2026-07-28T02:49:46.000Z",
+      "updatedAt": "2026-07-28T02:49:46.000Z",
+      "uid": "35240-2c24c815-fa4a-4f0a-bc57-2bddee5f14a0"
+    },
+    {
+      "name": "actions",
+      "item": [
+        {
+          "name": "custom",
+          "item": [
+            {
+              "name": "flow",
+              "item": [
+                {
+                  "name": "{flowApiName}",
+                  "item": [
+                    {
+                      "name": "Invoke Flow via REST Action",
+                      "id": "2c1d331a-31f5-4666-b148-0a22621b2b4d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"inputs\": [\n    {\n      \"Duis_9\": 59486787.39890903,\n      \"dolorebcf\": \"nostrud ut\"\n    },\n    {\n      \"dolor_6\": \"ut dolor minim commodo\",\n      \"est_e\": false\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/actions/custom/flow/:flowApiName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "actions",
+                            "custom",
+                            "flow",
+                            ":flowApiName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "64108a0f-ae47-456d-8ae6-779fe11f2b45",
+                              "key": "flowApiName",
+                              "value": "<string>",
+                              "description": "(Required) The API name of the flow to invoke."
+                            }
+                          ]
+                        },
+                        "description": "Invoke an autolaunched Salesforce Flow as a REST action. Passes input variables to the flow and returns output variables."
+                      },
+                      "response": [
+                        {
+                          "id": "833a7407-4b65-4923-b030-f0bceb69b806",
+                          "name": "Flow invocation result with output variables.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"inputs\": [\n    {\n      \"Duis_9\": 59486787.39890903,\n      \"dolorebcf\": \"nostrud ut\"\n    },\n    {\n      \"dolor_6\": \"ut dolor minim commodo\",\n      \"est_e\": false\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/actions/custom/flow/:flowApiName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "actions",
+                                "custom",
+                                "flow",
+                                ":flowApiName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowApiName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"actionName\": \"<string>\",\n  \"isSuccess\": \"<boolean>\",\n  \"outputValues\": {\n    \"sinte\": false,\n    \"ut_4\": \"aliquip ea nulla consequat\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-833a7407-4b65-4923-b030-f0bceb69b806"
+                        },
+                        {
+                          "id": "3156f0f4-4563-442b-91df-f226311ec41a",
+                          "name": "Bad request.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"inputs\": [\n    {\n      \"Duis_9\": 59486787.39890903,\n      \"dolorebcf\": \"nostrud ut\"\n    },\n    {\n      \"dolor_6\": \"ut dolor minim commodo\",\n      \"est_e\": false\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/actions/custom/flow/:flowApiName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "actions",
+                                "custom",
+                                "flow",
+                                ":flowApiName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowApiName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-3156f0f4-4563-442b-91df-f226311ec41a"
+                        },
+                        {
+                          "id": "5b6884d6-84c2-4650-a501-3f07e5eb6070",
+                          "name": "Unauthorized - invalid or expired credentials.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"inputs\": [\n    {\n      \"Duis_9\": 59486787.39890903,\n      \"dolorebcf\": \"nostrud ut\"\n    },\n    {\n      \"dolor_6\": \"ut dolor minim commodo\",\n      \"est_e\": false\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/actions/custom/flow/:flowApiName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "actions",
+                                "custom",
+                                "flow",
+                                ":flowApiName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowApiName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-5b6884d6-84c2-4650-a501-3f07e5eb6070"
+                        },
+                        {
+                          "id": "56921410-9bdb-42b0-9a8a-34f2d51dacf2",
+                          "name": "Forbidden - insufficient permissions.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"inputs\": [\n    {\n      \"Duis_9\": 59486787.39890903,\n      \"dolorebcf\": \"nostrud ut\"\n    },\n    {\n      \"dolor_6\": \"ut dolor minim commodo\",\n      \"est_e\": false\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/actions/custom/flow/:flowApiName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "actions",
+                                "custom",
+                                "flow",
+                                ":flowApiName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "flowApiName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:49:47.000Z",
+                          "updatedAt": "2026-07-28T02:49:47.000Z",
+                          "uid": "35240-56921410-9bdb-42b0-9a8a-34f2d51dacf2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:49:47.000Z",
+                      "updatedAt": "2026-07-28T02:49:47.000Z",
+                      "uid": "35240-2c1d331a-31f5-4666-b148-0a22621b2b4d"
+                    }
+                  ],
+                  "id": "6213eb24-483a-4f88-adf5-718a8593d66c",
+                  "createdAt": "2026-07-28T02:49:46.000Z",
+                  "updatedAt": "2026-07-28T02:49:46.000Z",
+                  "uid": "35240-6213eb24-483a-4f88-adf5-718a8593d66c"
+                }
+              ],
+              "id": "c9fe86af-1c39-4de2-8e0f-373c89526351",
+              "createdAt": "2026-07-28T02:49:46.000Z",
+              "updatedAt": "2026-07-28T02:49:46.000Z",
+              "uid": "35240-c9fe86af-1c39-4de2-8e0f-373c89526351"
+            }
+          ],
+          "id": "1942b520-e7ca-4436-b9e0-1dfa27835ff4",
+          "createdAt": "2026-07-28T02:49:46.000Z",
+          "updatedAt": "2026-07-28T02:49:46.000Z",
+          "uid": "35240-1942b520-e7ca-4436-b9e0-1dfa27835ff4"
+        }
+      ],
+      "id": "60eecc25-0173-4d4f-88dc-94194edcfd73",
+      "createdAt": "2026-07-28T02:49:46.000Z",
+      "updatedAt": "2026-07-28T02:49:46.000Z",
+      "uid": "35240-60eecc25-0173-4d4f-88dc-94194edcfd73"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api refresh_token",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.salesforce.com/services/data/v59.0"
+    }
+  ]
+}

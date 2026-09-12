@@ -1,0 +1,764 @@
+{
+  "item": [
+    {
+      "id": "44327aef-2a56-4fde-8401-2e7ac620a6c7",
+      "name": "Process Automation",
+      "description": {
+        "content": "Query and invoke automation processes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7785749a-b8bf-42b5-969b-56a8affefff5",
+          "name": "List Approval Processes",
+          "request": {
+            "name": "List Approval Processes",
+            "description": {
+              "content": "Retrieve a list of all approval processes and their configuration in the org. Returns approval process names, object types, and steps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "process",
+                "approvals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "235518af-fb9b-4746-b934-a46b0c96c6a2",
+              "name": "List of approval processes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"approvals\": {\n    \"key_0\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 6322,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 5294,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      }\n    ],\n    \"key_1\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 2153,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"object\": \"string\",\n        \"sortOrder\": 5109,\n        \"description\": \"string\",\n        \"entryCriteria\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d98aace-218d-4023-8b8c-2b649b9833fd",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd724b23-32c4-4a59-8c4e-ae010fd78f92",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d50b276b-ef0d-4863-b6b7-17359e65602e",
+          "name": "Submit Approval Request",
+          "request": {
+            "name": "Submit Approval Request",
+            "description": {
+              "content": "Submit a record for approval, approve or reject an approval request, or bulk process multiple approval actions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "process",
+                "approvals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a64d7ea8-6483-4536-bf48-83f17e893e49",
+              "name": "Approval request result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actorIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"entityId\": \"string\",\n  \"instanceId\": \"string\",\n  \"instanceStatus\": \"string\",\n  \"newWorkitemIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f22ad5c4-cda4-42c0-9f72-aa1812707506",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cc12d39-2833-4f87-b1f1-14f4be5ed7cf",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "feb045df-0fc0-48bb-bf1f-d88afdbba2e0",
+              "name": "Forbidden - insufficient permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process",
+                    "approvals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"<string>\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b4754cc-98cc-49ea-96e6-88bfbb0f7eda",
+          "name": "Execute SOQL Query",
+          "request": {
+            "name": "Execute SOQL Query",
+            "description": {
+              "content": "Execute a SOQL query against Salesforce objects. Used to query ProcessInstance (approval records), FlowInterview, and WorkflowRule objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) SOQL query string."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17442d6c-0536-497f-bd05-be97bd736514",
+              "name": "Query results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSize\": 2916,\n  \"done\": false,\n  \"nextRecordsUrl\": \"string\",\n  \"records\": [\n    {\n      \"key_0\": false\n    },\n    {\n      \"key_0\": 9083.96711685564\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60bd9f68-08a8-4bd0-b4c0-df90479470e5",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "819c6d74-511f-4e22-a72c-c47f99ebe763",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  },\n  {\n    \"message\": \"string\",\n    \"errorCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Salesforce org instance (e.g., na1, eu6, or MyDomain).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "yourInstance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.salesforce.com/services/data/v59.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api refresh_token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4553a4ef-e054-4a7a-8960-6764eeeac542",
+    "name": "Salesforce Flow Automation Flows Process Automation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Salesforce Flow Automation API provides programmatic access to Salesforce Flow definitions, interviews (running flow instances), and flow runtime execution. Flows are the primary automation tool in Salesforce, replacing Workflow Rules and Process Builder for automating business processes.\n\nContact Support:\n Name: Salesforce Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

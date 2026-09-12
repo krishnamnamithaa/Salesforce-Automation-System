@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Flow Automation Flows API",
+    "version": "59.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Flows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Flow Definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/tooling/query",
+            "params": [
+              {
+                "name": "q",
+                "value": "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50",
+                "type": "query",
+                "description": "SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)"
+              }
+            ]
+          },
+          "docs": "Query Salesforce Flow definitions using SOQL via the Tooling API. Returns flow metadata including API name, label, version, and status."
+        },
+        {
+          "info": {
+            "name": "Get Flow Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/tooling/sobjects/Flow/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "301xx000000002ZAAQ",
+                "type": "path",
+                "description": "The Salesforce Flow record ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific Flow version record from the Tooling API including full metadata for a flow definition."
+        },
+        {
+          "info": {
+            "name": "Invoke Flow via REST Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/actions/custom/flow/:flowApiName",
+            "params": [
+              {
+                "name": "flowApiName",
+                "value": "My_Order_Fulfillment_Flow",
+                "type": "path",
+                "description": "The API name of the flow to invoke."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invoke an autolaunched Salesforce Flow as a REST action. Passes input variables to the flow and returns output variables."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

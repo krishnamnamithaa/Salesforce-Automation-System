@@ -1,0 +1,41 @@
+{
+  "operation": "Invoke Flow",
+  "method": "POST",
+  "path": "/services/data/v59.0/actions/custom/flow/Order_Fulfillment_Flow",
+  "description": "Invoke an autolaunched Salesforce Flow with order ID and action inputs.",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer <access_token>",
+      "Content-Type": "application/json"
+    },
+    "pathParameters": {
+      "flowApiName": "Order_Fulfillment_Flow"
+    },
+    "body": {
+      "inputs": [
+        {
+          "orderId": "801xx000000009LAAQ",
+          "fulfillmentAction": "ship",
+          "warehouseId": "WH-001",
+          "priority": "standard"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "actionName": "Order_Fulfillment_Flow",
+        "errors": null,
+        "isSuccess": true,
+        "outputValues": {
+          "fulfillmentId": "FUL-2026-001234",
+          "estimatedShipDate": "2026-05-04",
+          "trackingNumber": null,
+          "status": "Processing"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,438 @@
+openapi: 3.0.0
+info:
+  title: Salesforce Flow Automation API
+  description: >-
+    The Salesforce Flow Automation API provides programmatic access to Salesforce
+    Flow definitions, interviews (running flow instances), and flow runtime execution.
+    Flows are the primary automation tool in Salesforce, replacing Workflow Rules and
+    Process Builder for automating business processes.
+  version: "59.0"
+  contact:
+    name: Salesforce Developer Relations
+    url: https://developer.salesforce.com
+  license:
+    name: Salesforce API Terms
+    url: https://www.salesforce.com/company/legal/agreements/
+servers:
+  - url: https://{instance}.salesforce.com/services/data/v59.0
+    description: Salesforce REST API server (replace {instance} with your org domain).
+    variables:
+      instance:
+        default: yourInstance
+        description: Your Salesforce org instance (e.g., na1, eu6, or MyDomain).
+security:
+  - oauth2: []
+  - bearerAuth: []
+tags:
+  - name: Flows
+    description: Manage Salesforce Flow definitions and metadata.
+  - name: Flow Interviews
+    description: Manage running flow interview instances.
+  - name: Process Automation
+    description: Query and invoke automation processes.
+paths:
+  /tooling/query:
+    get:
+      operationId: queryFlowDefinitions
+      tags:
+        - Flows
+      summary: Query Flow Definitions
+      description: >-
+        Query Salesforce Flow definitions using SOQL via the Tooling API.
+        Returns flow metadata including API name, label, version, and status.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: "SOQL query (e.g. SELECT Id, ApiName, Label, Status FROM FlowDefinition)"
+          example: "SELECT Id, ApiName, Label, Status, ActiveVersionId FROM FlowDefinition LIMIT 50"
+      responses:
+        '200':
+          description: SOQL query results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SoqlQueryResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /tooling/sobjects/Flow/{id}:
+    get:
+      operationId: getFlowVersion
+      tags:
+        - Flows
+      summary: Get Flow Version
+      description: >-
+        Retrieve a specific Flow version record from the Tooling API including
+        full metadata for a flow definition.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Salesforce Flow record ID.
+          example: 301xx000000002ZAAQ
+      responses:
+        '200':
+          description: Flow version record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowVersion'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /actions/custom/flow/{flowApiName}:
+    post:
+      operationId: invokeFlow
+      tags:
+        - Flows
+      summary: Invoke Flow via REST Action
+      description: >-
+        Invoke an autolaunched Salesforce Flow as a REST action. Passes input
+        variables to the flow and returns output variables.
+      parameters:
+        - name: flowApiName
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The API name of the flow to invoke.
+          example: My_Order_Fulfillment_Flow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlowInvocationRequest'
+      responses:
+        '200':
+          description: Flow invocation result with output variables.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlowInvocationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /process/approvals:
+    get:
+      operationId: listApprovalProcesses
+      tags:
+        - Process Automation
+      summary: List Approval Processes
+      description: >-
+        Retrieve a list of all approval processes and their configuration
+        in the org. Returns approval process names, object types, and steps.
+      responses:
+        '200':
+          description: List of approval processes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalProcessListResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: submitApprovalRequest
+      tags:
+        - Process Automation
+      summary: Submit Approval Request
+      description: >-
+        Submit a record for approval, approve or reject an approval request,
+        or bulk process multiple approval actions.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApprovalRequest'
+      responses:
+        '200':
+          description: Approval request result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApprovalResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /query:
+    get:
+      operationId: soqlQuery
+      tags:
+        - Process Automation
+      summary: Execute SOQL Query
+      description: >-
+        Execute a SOQL query against Salesforce objects. Used to query
+        ProcessInstance (approval records), FlowInterview, and WorkflowRule objects.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: SOQL query string.
+          example: "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'"
+      responses:
+        '200':
+          description: Query results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SoqlQueryResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.salesforce.com/services/oauth2/authorize
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+            refresh_token: Perform requests at any time
+        clientCredentials:
+          tokenUrl: https://login.salesforce.com/services/oauth2/token
+          scopes:
+            api: Access and manage your data
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    FlowVersion:
+      type: object
+      description: A Salesforce Flow version with metadata.
+      properties:
+        Id:
+          type: string
+          description: Record ID.
+        ApiName:
+          type: string
+          description: Developer API name of the flow.
+        Label:
+          type: string
+          description: Human-readable label.
+        Status:
+          type: string
+          enum: [Active, Draft, Obsolete, InvalidDraft]
+          description: Flow version status.
+        ProcessType:
+          type: string
+          description: "Flow type (Flow, AutoLaunchedFlow, etc.)."
+        TriggerType:
+          type: string
+          description: "What triggers the flow (RecordBeforeSave, RecordAfterSave, etc.)."
+
+    FlowInvocationRequest:
+      type: object
+      description: Request body for invoking a flow via REST action.
+      properties:
+        inputs:
+          type: array
+          description: Array of input variable objects to pass to the flow.
+          items:
+            type: object
+            additionalProperties: true
+          example:
+            - recordId: "001xx000003GYn1AAG"
+              action: "Approve"
+
+    FlowInvocationResponse:
+      type: object
+      description: Response from a flow REST action invocation.
+      properties:
+        actionName:
+          type: string
+          description: The name of the invoked flow action.
+        isSuccess:
+          type: boolean
+          description: Whether the flow invocation succeeded.
+        outputValues:
+          type: object
+          description: Output variable values from the flow.
+          additionalProperties: true
+        errors:
+          type: array
+          description: Errors if the flow failed.
+          items:
+            type: object
+
+    SoqlQueryResult:
+      type: object
+      description: SOQL query result.
+      properties:
+        totalSize:
+          type: integer
+          description: Total number of records matching the query.
+        done:
+          type: boolean
+          description: True if all records returned.
+        nextRecordsUrl:
+          type: string
+          description: URL to retrieve next page of results.
+        records:
+          type: array
+          description: Array of records.
+          items:
+            type: object
+            additionalProperties: true
+
+    ApprovalProcessListResult:
+      type: object
+      description: List of approval processes.
+      properties:
+        approvals:
+          type: object
+          description: Map of approval process names to configuration.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ApprovalProcessInfo'
+
+    ApprovalProcessInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        object:
+          type: string
+        sortOrder:
+          type: integer
+        description:
+          type: string
+        entryCriteria:
+          type: string
+
+    ApprovalRequest:
+      type: object
+      description: Request for approval submission, approval, or rejection.
+      required: [requests]
+      properties:
+        requests:
+          type: array
+          items:
+            type: object
+            required: [actionType, contextActorId, contextId]
+            properties:
+              actionType:
+                type: string
+                enum: [Submit, Approve, Reject, Recall, Reassign]
+                description: Type of approval action.
+              contextActorId:
+                type: string
+                description: ID of the user performing the action.
+              contextId:
+                type: string
+                description: ID of the record being submitted or acted upon.
+              comments:
+                type: string
+                description: Optional comments for the approval decision.
+              nextApproverIds:
+                type: array
+                items:
+                  type: string
+                description: IDs of next approvers (for manual routing).
+              processDefinitionNameOrId:
+                type: string
+                description: Approval process name or ID (for Submit actions).
+
+    ApprovalResult:
+      type: object
+      properties:
+        actorIds:
+          type: array
+          items:
+            type: string
+        entityId:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+        instanceId:
+          type: string
+        instanceStatus:
+          type: string
+        newWorkitemIds:
+          type: array
+          items:
+            type: string
+        success:
+          type: boolean
+
+  responses:
+    BadRequest:
+      description: Bad request.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                message: { type: string }
+                errorCode: { type: string }
+    Unauthorized:
+      description: Unauthorized - invalid or expired credentials.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                message: { type: string }
+                errorCode: { type: string }
+    Forbidden:
+      description: Forbidden - insufficient permissions.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                message: { type: string }
+                errorCode: { type: string }
+    NotFound:
+      description: Record not found.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                message: { type: string }
+                errorCode: { type: string }

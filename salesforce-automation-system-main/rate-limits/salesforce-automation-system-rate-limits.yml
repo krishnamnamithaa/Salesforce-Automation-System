@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Salesforce Automation System
+providerId: salesforce-automation-system
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - CRM
+  - Automation
+  - Salesforce
+  - Rate Limiting
+description: Salesforce enforces consumption of its automation APIs through a per-org 24-hour API request
+  allowance scaled by edition + license count, plus per-transaction Apex governor limits and concurrent-request
+  ceilings. Exact per-edition allowance numbers were not retrievable in this run (Salesforce documentation
+  pages bot-gated). This artifact captures the model and points to Salesforce's published limits cheatsheet.
+sources:
+  - https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm
+notes: Per-edition daily request limits and concurrent-request caps were not retrievable; consult the
+  Salesforce App Limits Cheatsheet from an authenticated browser session for current values.
+responseCodes:
+  throttled: 429
+  apiLimitExceeded: 403
+limits:
+  - name: Per-org 24-hour API request allowance
+    scope: org
+    metric: requests_per_day
+    limit: see Salesforce App Limits Cheatsheet (varies by edition + license count)
+    notes: REST, Bulk, Streaming, and Tooling API calls share a single 24-hour bucket scaled by edition
+      and license count.
+  - name: Concurrent long-running synchronous requests
+    scope: org
+    metric: concurrent_requests
+    limit: see Salesforce App Limits Cheatsheet
+    notes: Caps concurrent long-running (>20s) synchronous requests per org.
+  - name: Apex governor limits
+    scope: transaction
+    metric: varies
+    limit: see Apex Developer Guide governor limits
+    notes: Per-transaction limits on SOQL, DML, callouts, CPU time, and heap size apply to Flow / Apex
+      automation.
+  - name: Flow concurrency limits
+    scope: org
+    metric: concurrent_flows
+    limit: see Salesforce Flow limits documentation
+    notes: Limits on concurrent flow interviews and scheduled flow runs are documented per release.
+policies:
+  - name: Edition + license scaling
+    description: 24-hour allowance is computed as a per-edition base plus a per-license additive.
+  - name: REQUEST_LIMIT_EXCEEDED
+    description: Returns 403 with REQUEST_LIMIT_EXCEEDED once the rolling 24-hour allowance is exhausted.
+  - name: Bulk API for high-volume
+    description: Use Bulk API for large data movement to avoid burning the per-call REST allowance.
+  - name: Apex transaction discipline
+    description: Per-transaction governor limits are hard. Bulkify SOQL / DML; avoid callout fan-out per
+      record.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,88 @@
+extends: spectral:oas
+rules:
+
+  salesforce-operation-id-required:
+    description: All operations must have an operationId.
+    message: "Operation is missing operationId."
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  salesforce-summary-title-case:
+    description: Operation summaries should use Title Case.
+    message: "Summary '{{value}}' should use Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  salesforce-oauth2-required:
+    description: Salesforce APIs must declare OAuth2 or Bearer security.
+    message: "Salesforce API must declare OAuth2 authentication."
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["oauth2"]
+            - required: ["bearerAuth"]
+
+  salesforce-response-200-defined:
+    description: All operations must define a 200 or 201 response.
+    message: "Operation must define a success response."
+    severity: error
+    given: "$.paths[*][*].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ["200"]
+            - required: ["201"]
+
+  salesforce-tags-required:
+    description: All operations must have at least one tag.
+    message: "Operation must have at least one tag."
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  salesforce-versioned-server:
+    description: Server URL should include a version identifier.
+    message: "Server URL should include API version (e.g., /v59.0)."
+    severity: warn
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "/v[0-9]"
+
+  salesforce-error-responses:
+    description: Operations should define 401 and 403 error responses.
+    message: "Operations should define authentication/authorization error responses."
+    severity: warn
+    given: "$.paths[*][*].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required: ["401", "403"]
+
+  salesforce-content-type-json:
+    description: Request bodies must use application/json.
+    message: "Request body must declare application/json content type."
+    severity: error
+    given: "$.paths[*][*].requestBody.content"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required: ["application/json"]

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/salesforce-automation-system/json-schema/salesforce-approval-request-schema.json",
+  "title": "Salesforce Approval Request",
+  "description": "Schema for submitting, approving, or rejecting Salesforce approval process requests.",
+  "type": "object",
+  "required": ["requests"],
+  "properties": {
+    "requests": {
+      "type": "array",
+      "description": "Array of approval actions to perform.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["actionType", "contextActorId", "contextId"],
+        "properties": {
+          "actionType": {
+            "type": "string",
+            "enum": ["Submit", "Approve", "Reject", "Recall", "Reassign"],
+            "description": "The type of approval action to perform."
+          },
+          "contextActorId": {
+            "type": "string",
+            "description": "ID of the Salesforce user performing the action."
+          },
+          "contextId": {
+            "type": "string",
+            "description": "ID of the record being submitted for approval or acted upon."
+          },
+          "comments": {
+            "type": "string",
+            "description": "Optional comments explaining the approval decision."
+          },
+          "nextApproverIds": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "IDs of users to assign as next approvers (for manual approver routing)."
+          },
+          "processDefinitionNameOrId": {
+            "type": "string",
+            "description": "Name or ID of the approval process to use when submitting (for Submit actions)."
+          },
+          "skipEntryCriteria": {
+            "type": "boolean",
+            "description": "Whether to skip approval process entry criteria evaluation.",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

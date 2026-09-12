@@ -1,0 +1,16 @@
+{
+  "provider": "salesforce-automation-system",
+  "sources": [
+    "salesforce-automation-system-flows-api-openapi.yml",
+    "salesforce-automation-system-process-automation-api-openapi.yml"
+  ],
+  "outputs": [
+    "salesforce-automation-system-flows-api-openapi.yml",
+    "salesforce-automation-system-process-automation-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

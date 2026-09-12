@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Salesforce Flow Automation Flows Process Automation API",
+    "version": "59.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.salesforce.com/services/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Process Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Approval Processes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/process/approvals"
+          },
+          "docs": "Retrieve a list of all approval processes and their configuration in the org. Returns approval process names, object types, and steps."
+        },
+        {
+          "info": {
+            "name": "Submit Approval Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/process/approvals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a record for approval, approve or reject an approval request, or bulk process multiple approval actions."
+        },
+        {
+          "info": {
+            "name": "Execute SOQL Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.salesforce.com/services/data/v59.0/query",
+            "params": [
+              {
+                "name": "q",
+                "value": "SELECT Id, Status, TargetObjectId FROM ProcessInstance WHERE Status = 'Pending'",
+                "type": "query",
+                "description": "SOQL query string."
+              }
+            ]
+          },
+          "docs": "Execute a SOQL query against Salesforce objects. Used to query ProcessInstance (approval records), FlowInterview, and WorkflowRule objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,130 @@
+vocabulary:
+  name: Salesforce Automation System Vocabulary
+  description: >-
+    Operational vocabulary for Salesforce automation tools including Flows,
+    Process Builder, Workflow Rules, approval processes, and platform event automation.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  tags:
+    - Automation
+    - CRM
+    - Flow
+    - Salesforce
+    - Workflow
+
+  domains:
+    - name: Flow Automation
+      description: "Terms related to Salesforce Flow builder."
+      terms:
+        - term: Flow
+          definition: >-
+            A Salesforce automation tool that lets admins and developers build
+            automated processes using a visual builder. Flows can be screen flows
+            (user-facing) or autolaunched (background automation).
+          aliases: [Salesforce Flow, Lightning Flow, Flow Builder]
+          related: [AutoLaunched Flow, Flow Version, Trigger Type]
+
+        - term: AutoLaunched Flow
+          definition: >-
+            A flow with no user interface that runs in the background, triggered
+            by a record change, platform event, schedule, or API call.
+          aliases: [Background Flow, Headless Flow]
+          related: [Flow, Trigger Type, Flow Invocation]
+
+        - term: Screen Flow
+          definition: >-
+            A flow with a user interface that guides users through a series of
+            screens to complete a business process.
+          aliases: [UI Flow, Interactive Flow]
+          related: [Flow, Lightning Web Components]
+
+        - term: Flow Version
+          definition: >-
+            A specific saved version of a flow definition. Only one version can
+            be Active at a time; others are Draft, Obsolete, or InvalidDraft.
+          related: [Flow, Status, Active Version]
+
+        - term: Trigger Type
+          definition: >-
+            The event that launches a record-triggered flow: RecordBeforeSave,
+            RecordAfterSave, RecordBeforeDelete, or Scheduled.
+          related: [AutoLaunched Flow, Record-Triggered Flow]
+
+        - term: Flow Interview
+          definition: >-
+            A running instance of a flow. Each user interaction or API invocation
+            creates a FlowInterview Salesforce object.
+          related: [Flow, Autolaunched Flow]
+
+    - name: Process Automation
+      description: "Terms for Salesforce automation frameworks."
+      terms:
+        - term: Process Builder
+          definition: >-
+            A point-and-click automation tool (deprecated in favor of Flows) that
+            triggers automated actions when records meet specified criteria.
+          aliases: [Process]
+          related: [Flow, Workflow Rules]
+
+        - term: Workflow Rule
+          definition: >-
+            A legacy automation tool (pre-Flow) that triggers field updates,
+            email alerts, tasks, or outbound messages when criteria are met.
+          aliases: [Workflow, Workflow Action]
+          related: [Process Builder, Flow]
+
+        - term: Invocable Action
+          definition: >-
+            A reusable automation component callable from Flows, REST API, or
+            Apex. Custom invocable actions extend platform automation capabilities.
+          aliases: [REST Action, Named Action]
+          related: [Flow, Apex, REST API]
+
+    - name: Approval Processes
+      description: "Terms for Salesforce approval workflow."
+      terms:
+        - term: Approval Process
+          definition: >-
+            An automated multi-step process that requires one or more people to
+            approve a record before it can progress. Configured with entry criteria,
+            approval steps, and final approval/rejection actions.
+          aliases: [Approval Workflow, Approval Chain]
+          related: [Approval Step, Approval Request, ProcessInstance]
+
+        - term: Approval Step
+          definition: >-
+            A single stage in an approval process defining who must approve and
+            what happens when the step is approved, rejected, or recalled.
+          related: [Approval Process, Approver]
+
+        - term: ProcessInstance
+          definition: >-
+            A Salesforce object representing a single running or completed approval
+            process for a specific record.
+          aliases: [Approval Instance, Approval Record]
+          related: [Approval Process, Approval Step]
+
+        - term: Approver
+          definition: >-
+            The user (or queue) assigned to review and decide on an approval request.
+            Can be configured as the record owner's manager, a specific user, or a queue.
+          aliases: [Reviewer, Delegate]
+          related: [Approval Step, Reassign]
+
+    - name: Platform Events
+      description: "Terms for event-driven Salesforce automation."
+      terms:
+        - term: Platform Event
+          definition: >-
+            A Salesforce messaging framework that enables event-driven integrations.
+            Publishers post event messages; subscribers process them via Flows or Apex.
+          aliases: [Event, CometD Event]
+          related: [AutoLaunched Flow, Change Data Capture]
+
+        - term: Change Data Capture (CDC)
+          definition: >-
+            Salesforce technology that generates event messages for changes to
+            Salesforce records, enabling real-time data replication and integration.
+          aliases: [CDC, Data Change Event]
+          related: [Platform Event, Integration]

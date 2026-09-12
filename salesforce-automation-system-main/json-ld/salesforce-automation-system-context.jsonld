@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "sf": "https://developer.salesforce.com/docs/automation/vocab#",
+    "FlowDefinition": {
+      "@id": "sf:FlowDefinition",
+      "@type": "@id"
+    },
+    "FlowVersion": {
+      "@id": "sf:FlowVersion"
+    },
+    "ApprovalProcess": {
+      "@id": "sf:ApprovalProcess"
+    },
+    "ApprovalRequest": {
+      "@id": "sf:ApprovalRequest"
+    },
+    "ProcessInstance": {
+      "@id": "sf:ProcessInstance"
+    },
+    "Id": "@id",
+    "ApiName": {
+      "@id": "schema:identifier"
+    },
+    "Label": {
+      "@id": "schema:name"
+    },
+    "Description": {
+      "@id": "schema:description"
+    },
+    "Status": {
+      "@id": "schema:status"
+    },
+    "ProcessType": {
+      "@id": "sf:processType"
+    },
+    "TriggerType": {
+      "@id": "sf:triggerType"
+    },
+    "ActiveVersionId": {
+      "@id": "sf:activeVersionId",
+      "@type": "@id"
+    },
+    "actionType": {
+      "@id": "sf:actionType"
+    },
+    "contextActorId": {
+      "@id": "sf:actorId",
+      "@type": "@id"
+    },
+    "contextId": {
+      "@id": "sf:targetId",
+      "@type": "@id"
+    },
+    "comments": {
+      "@id": "schema:comment"
+    },
+    "success": {
+      "@id": "sf:success",
+      "@type": "xsd:boolean"
+    },
+    "instanceStatus": {
+      "@id": "sf:instanceStatus"
+    },
+    "CreatedDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "LastModifiedDate": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Salesforce Automation System
+providerId: salesforce-automation-system
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Approval Process
+  - Automation
+  - CRM
+  - Flow
+  - Process Builder
+  - Salesforce
+  - Workflow
+description: 'Salesforce Automation System aggregates Salesforce''s automation surface — Flow Builder,
+  approval processes, Process Builder, Workflow Rules — exposed via the REST, Bulk, Streaming, and Tooling
+  APIs. Salesforce sells access through per-user-per-month editions of Sales Cloud, Service Cloud, Platform,
+  and Industry clouds rather than via a standalone API price list. API request limits ride along with
+  the org''s edition and license count. Salesforce''s public marketing pages were not retrievable for
+  this run, so per-edition prices are not fabricated below.'
+sources:
+  - https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/
+  - https://www.salesforce.com/editions-pricing/sales-cloud/
+notes: Salesforce.com pricing pages return 403 to scraping; per-edition list prices and exact API request
+  caps could not be verified in this run. Real prices vary by region, contract size, and add-on mix and
+  are negotiated through Salesforce sales / partners. This artifact is intentionally a single Contact
+  Sales plan rather than a fabricated tier breakdown.
+plans:
+  - id: salesforce-automation-system-contact-sales
+    name: Contact Sales
+    type: enterprise
+    description: Salesforce edition subscription that includes the automation surface (Flow / Process
+      / Approval / Workflow) and API access (REST / Bulk / Streaming / Tooling). Per-user-per-month pricing
+      varies by edition and is set by Salesforce sales.
+    entries:
+      - label: Edition Subscription
+        name: edition_subscription
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: true
+    elements:
+      - name: Flow Builder
+      - name: Approval Processes
+      - name: Process Builder (legacy)
+      - name: Workflow Rules (legacy)
+      - name: REST / Bulk / Streaming / Tooling API access
+      - name: Per-org daily API request allowance scaled by edition and license count
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,78 @@
+{
+  "name": "Salesforce Automation System Data Structures",
+  "description": "Core data structures for Salesforce Flow and Process Automation APIs.",
+  "version": "59.0",
+  "structures": [
+    {
+      "name": "FlowDefinition",
+      "description": "A Salesforce Flow definition record from the Tooling API.",
+      "fields": [
+        { "name": "Id", "type": "string", "required": false, "description": "Salesforce record ID." },
+        { "name": "ApiName", "type": "string", "required": false, "description": "Developer API name." },
+        { "name": "Label", "type": "string", "required": false, "description": "UI display label." },
+        { "name": "Status", "type": "string", "required": false, "description": "Active | Draft | Obsolete | InvalidDraft." },
+        { "name": "ProcessType", "type": "string", "required": false, "description": "Flow type (Flow, AutoLaunchedFlow, Workflow, etc.)." },
+        { "name": "TriggerType", "type": "string", "required": false, "description": "Record trigger or Scheduled." },
+        { "name": "ActiveVersionId", "type": "string (ID)", "required": false, "description": "ID of the active version." },
+        { "name": "CreatedDate", "type": "datetime", "required": false, "description": "ISO 8601 creation timestamp." }
+      ]
+    },
+    {
+      "name": "FlowInvocationRequest",
+      "description": "Request to invoke an autolaunched Flow.",
+      "fields": [
+        {
+          "name": "inputs",
+          "type": "object[]",
+          "required": true,
+          "description": "Array of input variable objects passed to the flow.",
+          "children": [
+            { "name": "<variable_name>", "type": "any", "required": false, "description": "Input variable value keyed by flow variable API name." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FlowInvocationResponse",
+      "description": "Response from a Flow REST action invocation.",
+      "fields": [
+        { "name": "actionName", "type": "string", "required": false, "description": "Name of the invoked flow action." },
+        { "name": "isSuccess", "type": "boolean", "required": false, "description": "Whether the flow succeeded." },
+        { "name": "outputValues", "type": "object", "required": false, "description": "Map of output variable names to values." },
+        { "name": "errors", "type": "array", "required": false, "description": "Error details if the flow failed." }
+      ]
+    },
+    {
+      "name": "ApprovalRequest",
+      "description": "Request body for approval process actions.",
+      "fields": [
+        {
+          "name": "requests",
+          "type": "ApprovalAction[]",
+          "required": true,
+          "description": "List of approval actions to perform.",
+          "children": [
+            { "name": "actionType", "type": "string", "required": true, "description": "Submit | Approve | Reject | Recall | Reassign." },
+            { "name": "contextActorId", "type": "string (ID)", "required": true, "description": "User performing the action." },
+            { "name": "contextId", "type": "string (ID)", "required": true, "description": "Record being submitted or acted upon." },
+            { "name": "comments", "type": "string", "required": false, "description": "Decision comments." },
+            { "name": "processDefinitionNameOrId", "type": "string", "required": false, "description": "Approval process name/ID (for Submit)." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ApprovalResult",
+      "description": "Result of an approval process action.",
+      "fields": [
+        { "name": "actorIds", "type": "string[]", "required": false, "description": "IDs of assigned approvers." },
+        { "name": "entityId", "type": "string", "required": false, "description": "ID of the record acted upon." },
+        { "name": "errors", "type": "array", "required": false, "description": "Validation or processing errors." },
+        { "name": "instanceId", "type": "string", "required": false, "description": "ProcessInstance ID." },
+        { "name": "instanceStatus", "type": "string", "required": false, "description": "Current approval status: Pending | Approved | Rejected | Recalled." },
+        { "name": "newWorkitemIds", "type": "string[]", "required": false, "description": "IDs of created approval work items." },
+        { "name": "success", "type": "boolean", "required": false, "description": "Whether the operation succeeded." }
+      ]
+    }
+  ]
+}

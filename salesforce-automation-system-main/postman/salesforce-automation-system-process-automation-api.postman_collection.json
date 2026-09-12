@@ -1,0 +1,696 @@
+{
+  "info": {
+    "_postman_id": "5d49380d-eb39-426b-90d6-99c1885faf70",
+    "name": "Salesforce Flow Automation Flows Process Automation API",
+    "description": "The Salesforce Flow Automation API provides programmatic access to Salesforce Flow definitions, interviews (running flow instances), and flow runtime execution. Flows are the primary automation tool in Salesforce, replacing Workflow Rules and Process Builder for automating business processes.\n\nContact Support:\n Name: Salesforce Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:49:47.000Z",
+    "updatedAt": "2026-07-28T02:49:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5d49380d-eb39-426b-90d6-99c1885faf70"
+  },
+  "item": [
+    {
+      "name": "process",
+      "item": [
+        {
+          "name": "approvals",
+          "item": [
+            {
+              "name": "List Approval Processes",
+              "id": "af492cf0-1123-41ba-8476-2895cc211ff6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/process/approvals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "process",
+                    "approvals"
+                  ]
+                },
+                "description": "Retrieve a list of all approval processes and their configuration in the org. Returns approval process names, object types, and steps."
+              },
+              "response": [
+                {
+                  "id": "7c93d111-28d1-4bba-b9a6-d7360d1500e5",
+                  "name": "List of approval processes.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"approvals\": {\n    \"labore_a8\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"object\": \"<string>\",\n        \"sortOrder\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"entryCriteria\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"object\": \"<string>\",\n        \"sortOrder\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"entryCriteria\": \"<string>\"\n      }\n    ],\n    \"amet55\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"object\": \"<string>\",\n        \"sortOrder\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"entryCriteria\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"object\": \"<string>\",\n        \"sortOrder\": \"<integer>\",\n        \"description\": \"<string>\",\n        \"entryCriteria\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-7c93d111-28d1-4bba-b9a6-d7360d1500e5"
+                },
+                {
+                  "id": "f412eea8-7dd4-4ce0-8be9-64a44ba58b4b",
+                  "name": "Unauthorized - invalid or expired credentials.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-f412eea8-7dd4-4ce0-8be9-64a44ba58b4b"
+                },
+                {
+                  "id": "c7159870-7c55-4d8d-abfa-d9a08b912871",
+                  "name": "Forbidden - insufficient permissions.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-c7159870-7c55-4d8d-abfa-d9a08b912871"
+                }
+              ],
+              "createdAt": "2026-07-28T02:49:48.000Z",
+              "updatedAt": "2026-07-28T02:49:48.000Z",
+              "uid": "35240-af492cf0-1123-41ba-8476-2895cc211ff6"
+            },
+            {
+              "name": "Submit Approval Request",
+              "id": "b9554bb9-0ecf-40e6-9321-96f4347cb5db",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"Submit\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"Recall\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/process/approvals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "process",
+                    "approvals"
+                  ]
+                },
+                "description": "Submit a record for approval, approve or reject an approval request, or bulk process multiple approval actions."
+              },
+              "response": [
+                {
+                  "id": "a07fd06b-675e-4675-80d5-9d1b1eaf6ba4",
+                  "name": "Approval request result.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"Submit\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"Recall\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"actorIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"entityId\": \"<string>\",\n  \"instanceId\": \"<string>\",\n  \"instanceStatus\": \"<string>\",\n  \"newWorkitemIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"success\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-a07fd06b-675e-4675-80d5-9d1b1eaf6ba4"
+                },
+                {
+                  "id": "bcd65e85-77cc-43df-93a8-2ca4cf62ad1b",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"Submit\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"Recall\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-bcd65e85-77cc-43df-93a8-2ca4cf62ad1b"
+                },
+                {
+                  "id": "a92bd434-0ad1-4748-9cb0-7ba66beb61ac",
+                  "name": "Unauthorized - invalid or expired credentials.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"Submit\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"Recall\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-a92bd434-0ad1-4748-9cb0-7ba66beb61ac"
+                },
+                {
+                  "id": "df57d594-69ee-476c-ae12-d1c78a270dbf",
+                  "name": "Forbidden - insufficient permissions.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requests\": [\n    {\n      \"actionType\": \"Submit\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    },\n    {\n      \"actionType\": \"Recall\",\n      \"contextActorId\": \"<string>\",\n      \"contextId\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"nextApproverIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"processDefinitionNameOrId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/process/approvals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "process",
+                        "approvals"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:49:48.000Z",
+                  "updatedAt": "2026-07-28T02:49:48.000Z",
+                  "uid": "35240-df57d594-69ee-476c-ae12-d1c78a270dbf"
+                }
+              ],
+              "createdAt": "2026-07-28T02:49:48.000Z",
+              "updatedAt": "2026-07-28T02:49:48.000Z",
+              "uid": "35240-b9554bb9-0ecf-40e6-9321-96f4347cb5db"
+            }
+          ],
+          "id": "3203de1d-a2db-4c1d-8e60-c8baf4b724a8",
+          "createdAt": "2026-07-28T02:49:48.000Z",
+          "updatedAt": "2026-07-28T02:49:48.000Z",
+          "uid": "35240-3203de1d-a2db-4c1d-8e60-c8baf4b724a8"
+        }
+      ],
+      "id": "4e6eb172-f3f2-4830-aaae-c68e9111c035",
+      "createdAt": "2026-07-28T02:49:48.000Z",
+      "updatedAt": "2026-07-28T02:49:48.000Z",
+      "uid": "35240-4e6eb172-f3f2-4830-aaae-c68e9111c035"
+    },
+    {
+      "name": "query",
+      "item": [
+        {
+          "name": "Execute SOQL Query",
+          "id": "8e1f6cf0-80f0-44e4-b4d0-0c05a555103f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/query?q=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "query"
+              ],
+              "query": [
+                {
+                  "description": "(Required) SOQL query string.",
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Execute a SOQL query against Salesforce objects. Used to query ProcessInstance (approval records), FlowInterview, and WorkflowRule objects."
+          },
+          "response": [
+            {
+              "id": "ea93a276-2af5-4243-9686-8abf6a6bb564",
+              "name": "Query results.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query string.",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"totalSize\": \"<integer>\",\n  \"done\": \"<boolean>\",\n  \"nextRecordsUrl\": \"<string>\",\n  \"records\": [\n    {\n      \"reprehenderit5\": \"sunt consectetur\"\n    },\n    {\n      \"enim8b\": -32019331.831626594,\n      \"Lorem_ff\": -44098215,\n      \"sintd71\": \"reprehenderit laborum amet do aliqua\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:49:48.000Z",
+              "updatedAt": "2026-07-28T02:49:48.000Z",
+              "uid": "35240-ea93a276-2af5-4243-9686-8abf6a6bb564"
+            },
+            {
+              "id": "56e60977-dc88-4e76-bd8f-7efdba2ca937",
+              "name": "Bad request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query string.",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:49:48.000Z",
+              "updatedAt": "2026-07-28T02:49:48.000Z",
+              "uid": "35240-56e60977-dc88-4e76-bd8f-7efdba2ca937"
+            },
+            {
+              "id": "6050cf1a-5061-4e37-9a38-0676c4c9b6b7",
+              "name": "Unauthorized - invalid or expired credentials.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/query?q=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SOQL query string.",
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"errorCode\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:49:48.000Z",
+              "updatedAt": "2026-07-28T02:49:48.000Z",
+              "uid": "35240-6050cf1a-5061-4e37-9a38-0676c4c9b6b7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:49:48.000Z",
+          "updatedAt": "2026-07-28T02:49:48.000Z",
+          "uid": "35240-8e1f6cf0-80f0-44e4-b4d0-0c05a555103f"
+        }
+      ],
+      "id": "87c9d023-ec6b-4fdf-93e6-2e9ad3b8b91d",
+      "createdAt": "2026-07-28T02:49:48.000Z",
+      "updatedAt": "2026-07-28T02:49:48.000Z",
+      "uid": "35240-87c9d023-ec6b-4fdf-93e6-2e9ad3b8b91d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api refresh_token",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.salesforce.com/services/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.salesforce.com/services/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "yourInstance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.salesforce.com/services/data/v59.0"
+    }
+  ]
+}
